@@ -11,6 +11,12 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg bg-light">
+      Welcome <%= current_user.username %>
+      <%= link_to "Your Bookings", bookings_index_path %>
+      <%= link_to "Available Jetpacks", jetpacks_path %>
+      <%= link_to "Bookings of your jetpacks", owner_bookings_path %>
+    </nav>
     <%= yield %>
   </body>
 </html>

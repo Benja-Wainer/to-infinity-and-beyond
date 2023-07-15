@@ -9,5 +9,12 @@
       </div>
     </div>
 
+  <h2>Book Now!</h2>
+  <%= simple_form_for [@jetpack, @booking] do |f| %>
+    <%= f.input :comment %>
+    <%= f.input :booking_date %>
+    <%= f.submit "Book this jetpack", class: "btn btn-primary" %>
+  <% end %>
+
     <%= link_to "Return to main list", jetpacks_path %>
 </div>
