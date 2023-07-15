@@ -10,13 +10,14 @@ class JetpacksController < ApplicationController
   end
 
   def new
-    @jetpack = Jetpck.new
+    @jetpack = Jetpack.new
   end
 
   def create
     @jetpack = Jetpack.new(jetpack_params)
+    @jetpack.user = current_user
     if @jetpack.save
-      redirect_to index_path
+      redirect_to jetpacks_path
     else
       render :new, status: :unprocessable_entity
     end
