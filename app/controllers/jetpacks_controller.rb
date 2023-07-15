@@ -7,6 +7,7 @@ class JetpacksController < ApplicationController
 
   def show
     @jetpack = Jetpack.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
