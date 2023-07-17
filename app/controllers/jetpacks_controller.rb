@@ -31,6 +31,6 @@ class JetpacksController < ApplicationController
   end
 
   def jetpack_params
-    params.require(:jetpack).permit(:title, :model, :price, :description)
+    params.require(:jetpack).permit(:title, :model, :price, :description, :photo)
   end
 end
