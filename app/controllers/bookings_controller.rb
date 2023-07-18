@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
   def create
     @jetpack = Jetpack.find(params[:jetpack_id])
     @booking = Booking.new(booking_params)
-    @booking.status = "Pending"
+    @booking.status = "pending"
     @booking.user = current_user
     @booking.jetpack = @jetpack
     if @booking.save
