@@ -1,5 +1,6 @@
-<h1>Your bookings</h1>
+<h1>Bookings#index</h1>
 <% @bookings.each do |booking| %>
   <%= booking.jetpack.title %>
+  <%= booking.user.username %>
   <%= booking.booking_date %>
 <% end %>
