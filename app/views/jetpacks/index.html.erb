@@ -2,8 +2,13 @@
   <h2>Available jetpacks</h2>
 
   <% @jetpacks.each do |jetpack| %>
+
     <div class="card-product my-2">
-      <img src="assets/images/default.jpg" />
+      <% if jetpack.photo.attached? %>
+        <%= cl_image_tag jetpack.photo.key, height: 120, crop: :fill %>
+      <% else %>
+        <img src=<%= image_path('default.jpg') %> alt="Default jetpack picture">
+      <% end %>
       <div class="card-product-infos">
         <h2><%= jetpack.title %></h2>
         <p><strong>$<%= jetpack.price %></strong></p>
