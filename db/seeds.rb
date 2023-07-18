@@ -12,7 +12,7 @@ puts "Done!"
 
 puts "Creating first jetpack"
 Jetpack.create!(
-  title: "Jetpack 1",
+  title: "Faster than light experience",
   model: "Fly-o-Matic 3000",
   price: 150,
   description: "Some description",
@@ -20,7 +20,7 @@ Jetpack.create!(
 )
 puts "Creating second jetpack"
 Jetpack.create!(
-  title: "Jetpack 2",
+  title: "Only 30% fatalities!",
   model: "The Burninator",
   price: 100,
   description: "Another description",
@@ -28,8 +28,8 @@ Jetpack.create!(
 )
 puts "Creating third jetpack"
 Jetpack.create!(
-  title: "Jetpack 3",
-  model: "Red Comet",
+  title: "My First Jetpack",
+  model: "Cushioned jetpack for the little ones",
   price: 200,
   description: "A final description",
   user_id: 1
