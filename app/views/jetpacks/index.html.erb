@@ -1,16 +1,17 @@
-<div class="container">
-  <h2>Available jetpacks</h2>
-
-  <% @jetpacks.each do |jetpack| %>
-    <div class="card-product my-2">
-      <img src="assets/images/default.jpg" />
-      <div class="card-product-infos">
-        <h2><%= jetpack.title %></h2>
-        <p><strong>$<%= jetpack.price %></strong></p>
-        <%= link_to "Book now!", jetpack_path(jetpack), class: "btn btn-primary" %>
+<div style="background-size: cover; background-image: url('https://i.ibb.co/tLsjLsq/pexels-pixabay-531756.jpg');">
+  <div class="container">
+    <%= link_to "Add a jetpack", new_jetpack_path, class: "btn btn-success align-items " %>
+  </div>
+  <div class="container d-flex flex-wrap">
+    <% @jetpacks.each do |jetpack| %>
+      <div class="card m-3" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= jetpack.title %></h5>
+          <p class="card-text"><strong>$<%= jetpack.price %></strong></p>
+          <%= link_to "Book now!", jetpack_path(jetpack), class: "btn btn-primary" %>
+        </div>
       </div>
-    </div>
-  <% end %>
-
-  <%= link_to "Add a jetpack", new_jetpack_path %>
+    <% end %>
+  </div>
 </div>
