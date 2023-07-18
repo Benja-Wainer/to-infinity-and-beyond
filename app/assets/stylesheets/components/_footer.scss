@@ -1,11 +1,15 @@
 .footer {
-  background: #F4F4F4;
+  background-color: #404040;
+  color: #9d9898;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
-  padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
+  height: 60px;
+  padding: 0px;
+
+  p {
+    margin: 30px 10px;
+  }
 }
 .footer-links {
   display: flex;

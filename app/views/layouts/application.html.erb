@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ToInfinityAndBeyond</title>
+    <title>To Infinity and Beyond</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,12 +11,10 @@
   </head>
 
   <body>
-    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <div class="navbar navbar-dark navbar-expand-sm navbar-infinity justify-content-between">
       <div class="container-fluid">
-        <%= link_to "#", class: "navbar-brand" do %>
-          <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-        <% end %>
-
+        <i><%= link_to "", "#", class: "navbar-brand fa-solid fa-rocket btn", style: "color: #ff0000;"%></i>
+        <h2 class="navbar-brand">To Infinity and Beyond</h2>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -50,16 +48,8 @@
     </div>
     <%= yield %>
     <div class="footer">
-      <div class="footer-copyright">
-        <div class="d-flex justify-content-between">
-          <div>
-            <p>Copyright 2050 Tellus LLC</p>
-          </div>
-          <div>
-            <p>We are not liable for any injuries or deaths that may occur. Use at your own risk.</p>
-          </div>
-        </div>
-      </div>
+      <p>Copyright 2050 Tellus LLC</p>
+      <p>We are not liable for any injuries or deaths that may occur. Use at your own risk.</p>
     </div>
   </body>
 </html>
