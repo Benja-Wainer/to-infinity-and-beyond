@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ToInfinityAndBeyond</title>
+    <title>To Infinity and Beyond</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,12 +11,10 @@
   </head>
 
   <body>
-    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <div class="navbar navbar-dark navbar-expand-sm navbar-infinity justify-content-between align-items-center">
       <div class="container-fluid">
-        <%= link_to "#", class: "navbar-brand" do %>
-          <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-        <% end %>
-
+        <i><%= link_to "", "#", class: "navbar-brand fa-solid fa-rocket btn", style: "color: #ff0000;"%></i>
+        <h2 class="navbar-brand my-0">To Infinity and Beyond</h2>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -24,24 +22,18 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto">
             <% if user_signed_in? %>
+            <p class="navbar-welcome-message">Welcome <%= current_user.username %></p>
               <li class="nav-item active">
-                <%= link_to "Home", "#", class: "nav-link" %>
+                <%= link_to "My bookings", bookings_index_path, class: "nav-btn-purple mx-2" %>
               </li>
               <li class="nav-item">
-                <%= link_to "Messages", "#", class: "nav-link" %>
-              </li>
-              <li class="nav-item dropdown">
-              <a href="#" class="avatar"Z>
-                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar"%>
-              </a>
-              <li class="nav-item">
-                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
+                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link my-0" %>
               </li>
                 </div>
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+                <%= link_to "Log in", new_user_session_path, class: "nav-btn-purple" %>
               </li>
             <% end %>
           </ul>
@@ -50,16 +42,8 @@
     </div>
     <%= yield %>
     <div class="footer">
-      <div class="footer-copyright">
-        <div class="d-flex justify-content-between">
-          <div>
-            <p>Copyright 2050 Tellus LLC</p>
-          </div>
-          <div>
-            <p>We are not liable for any injuries or deaths that may occur. Use at your own risk.</p>
-          </div>
-        </div>
-      </div>
+      <p>Copyright 2050 Tellus LLC</p>
+      <p>We are not liable for any injuries or deaths that may occur. Use at your own risk.</p>
     </div>
   </body>
 </html>
