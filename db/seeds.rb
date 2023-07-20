@@ -6,31 +6,34 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+puts "Destroying all users"
+User.destroy_all
+puts "Done!"
+
+puts "Creating 5 users"
+5.times do
+  user = User.create!(
+    username: Faker::Internet.username,
+    email: Faker::Internet.email,
+    password: "123456",
+  )
+  puts "User #{user.username} has been created"
+end
+puts "Finished seeding users"
+
+
 puts "Destroying all jetpacks"
 Jetpack.destroy_all
 puts "Done!"
 
-puts "Creating first jetpack"
-Jetpack.create!(
-  title: "Faster than light experience",
-  model: "Fly-o-Matic 3000",
-  price: 150,
-  description: "Some description",
-  user_id: 1
-)
-puts "Creating second jetpack"
-Jetpack.create!(
-  title: "Only 30% fatalities!",
-  model: "The Burninator",
-  price: 100,
-  description: "Another description",
-  user_id: 1
-)
-puts "Creating third jetpack"
-Jetpack.create!(
-  title: "My First Jetpack",
-  model: "Cushioned jetpack for the little ones",
-  price: 200,
-  description: "A final description",
-  user_id: 1
-)
+10.times do
+  jetpack = Jetpack.create!(
+    title: Faker::Superhero.name,
+    model: Faker::Science.tool,
+    price: rand(100.300),
+    description: "Exciting jetpack description",
+    user_id: rand(1..5)
+  )
+  puts "Creating jetpack number #{jetpack.id}"
+end
+puts "Finished seeding jetpacks"
