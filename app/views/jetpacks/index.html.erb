@@ -8,7 +8,7 @@
     <div class="row">
     <% @jetpacks.each do |jetpack| %>
       <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-        <div class="card m-3" style="width: 16rem; box-shadow: 0px 0px 15px black;">
+        <div class="card m-3" style="width: 16rem; box-shadow: 0 0 15px rgba(0,0,0,0.40);">
           <% if jetpack.photo.attached? %>
             <%= cl_image_tag jetpack.photo.key, height: 120, crop: :fill, class: "card-img-top" %>
           <% else %>
