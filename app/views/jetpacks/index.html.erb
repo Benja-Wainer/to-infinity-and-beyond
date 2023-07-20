@@ -1,21 +1,26 @@
-<div class="container">
-  <h2>Available jetpacks</h2>
-
-  <% @jetpacks.each do |jetpack| %>
-
-    <div class="card-product my-2">
-      <% if jetpack.photo.attached? %>
-        <%= cl_image_tag jetpack.photo.key, height: 120, crop: :fill %>
-      <% else %>
-        <img src=<%= image_path('default.jpg') %> alt="Default jetpack picture">
-      <% end %>
-      <div class="card-product-infos">
-        <h2><%= jetpack.title %></h2>
-        <p><strong>$<%= jetpack.price %></strong></p>
-        <%= link_to "Book now!", jetpack_path(jetpack), class: "btn btn-primary" %>
-      </div>
+<div style="background-size: cover; background-image: url('https://i.ibb.co/tLsjLsq/pexels-pixabay-531756.jpg');">
+  <div class="container">
+    <div class="p-2 text-end">
+      <%= link_to "Add Jetpack", new_jetpack_path, class: "btn btn-success" %>
     </div>
-  <% end %>
-
-  <%= link_to "Add a jetpack", new_jetpack_path %>
+  </div>
+  <div class="container d-flex flex-wrap">
+    <div class="row">
+    <% @jetpacks.each do |jetpack| %>
+      <div class="col-3">
+        <div class="card m-3" style="width: 16rem;">
+          <% if jetpack.photo.attached? %>
+            <%= cl_image_tag jetpack.photo.key, height: 120, crop: :fill, class: "card-img-top" %>
+          <% else %>
+            <img class="card-img-top" src=<%= image_path('default.jpg') %> alt="Default jetpack picture">
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= jetpack.title %></h5>
+            <p class="card-text"><strong>$<%= jetpack.price %></strong></p>
+            <%= link_to "Book now!", jetpack_path(jetpack), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
