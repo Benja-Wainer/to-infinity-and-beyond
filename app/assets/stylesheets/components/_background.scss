@@ -1,0 +1,14 @@
+.background {
+  width: 100%;
+  z-index: 0;
+  position: absolute;
+}
+
+.content
+{
+    margin: 0 auto;
+    position: relative;
+    z-index: 999;
+    color: white;
+    padding: 250px;
+}
