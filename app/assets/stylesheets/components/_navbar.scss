@@ -17,9 +17,45 @@
   text-decoration: none;
 
   &:hover {
-    background-color: #404040;
+    background-color: $primary;
     color: white;
     text-decoration: none;
+    transition-duration: 1s;
+  }
+}
+
+.nav-btn-gray {
+  display: block;
+  padding: 5px 10px;
+  background-color: #404040;
+  color: white;
+  border-radius: 11px;
+  border: 1px solid #BCBCBC;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #BCBCBC;
+    color: #404040;
+    text-decoration: none;
+    transition-duration: 1s;
+  }
+}
+
+.nav-btn-white {
+  display: block;
+  padding: 5px 10px;
+  background-color: #BCBCBC;
+  color: black;
+  border-radius: 11px;
+  border: 1px solid #404040;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #404040;
+    color: white;
+    border: 1px solid #BCBCBC;
+    text-decoration: none;
+    transition-duration: 1s;
   }
 }
 
