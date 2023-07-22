@@ -10,7 +10,7 @@
         <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
           <div class="card m-3" style="width: 16rem; box-shadow: 0 0 15px rgba(0,0,0,0.40);">
             <% if jetpack.photo.attached? %>
-              <%= cl_image_tag jetpack.photo.key, height: 120, crop: :fill, class: "card-img-top" %>
+              <%= cl_image_tag jetpack.photo.key, height: 230, style: "object-fit: cover;", class: "card-img-top" %>
             <% else %>
               <img class="card-img-top" src=<%= image_path('default.jpg') %> alt="Default jetpack picture">
             <% end %>
