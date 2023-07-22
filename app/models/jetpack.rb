@@ -3,6 +3,6 @@ class Jetpack < ApplicationRecord
   has_one_attached :photo
 
   validates :title, :model, :price, :description, presence: true
-  validates :description, length: { maximum: 255 }
+  validates :description, length: { maximum: 100 }
   validates :title, length: { minimum: 2 }
 end
