@@ -1,4 +1,4 @@
-<div style="background-size: cover; background-image: url('https://i.ibb.co/tLsjLsq/pexels-pixabay-531756.jpg');">
+<div style="background-size: cover; background-image: url('https://res.cloudinary.com/dh2hxvsxw/image/upload/v1689855636/guillaume-galtier-3YrppYQPoCI-unsplash_i6v5an.jpg');">
   <div class="container">
     <div class="p-2 text-end">
       <%= link_to "Add Jetpack", new_jetpack_path, class: "btn btn-success" %>
@@ -7,17 +7,18 @@
   <div class="container d-flex flex-wrap">
     <div class="row">
     <% @jetpacks.each do |jetpack| %>
-      <div class="col-3">
-        <div class="card m-3" style="width: 16rem;">
+      <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+        <div class="card m-3" style="width: 16rem; box-shadow: 0 0 15px rgba(0,0,0,0.40);">
           <% if jetpack.photo.attached? %>
             <%= cl_image_tag jetpack.photo.key, height: 120, crop: :fill, class: "card-img-top" %>
           <% else %>
             <img class="card-img-top" src=<%= image_path('default.jpg') %> alt="Default jetpack picture">
           <% end %>
           <div class="card-body">
-            <h5 class="card-title"><%= jetpack.title %></h5>
-            <p class="card-text"><strong>$<%= jetpack.price %></strong></p>
-            <%= link_to "Book now!", jetpack_path(jetpack), class: "btn btn-primary" %>
+            <h5 class="card-title text-truncate"><%= jetpack.title %></h5>
+            <p class="card-text text-start" style="font-weight: bold; float: left" ><%= jetpack.model %></p>
+            <p class="card-text font-weight-bold text-end" style="font-weight: bold; font-size: larger" >$<%= jetpack.price %></p>
+            <%= link_to "More details", jetpack_path(jetpack), class: "btn btn-warning btn-block w-100" %>
           </div>
         </div>
       </div>
