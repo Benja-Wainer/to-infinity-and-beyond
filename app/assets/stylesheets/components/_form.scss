@@ -1,0 +1,18 @@
+.booking-form {
+  background: #F08D45;
+  padding: 10px;
+  border-radius: 10px;
+
+  .booking-submit {
+    display: block;
+    padding: 10px;
+    background-color: #D62828;
+    margin: auto;
+    color: white;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: blue;
+    }
+  }
+}
