@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :bookings # bookings as a client
-  has_many :jetpacks
+  has_many :jetpacks, dependent: :destroy
   has_many :bookings_as_owner, through: :jetpacks, source: :bookings
 end
