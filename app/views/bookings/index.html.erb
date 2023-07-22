@@ -16,7 +16,7 @@
           <%= link_to "Jetpack details", jetpack_path(booking.jetpack), class: "btn btn-warning col-2" %>
         </div>
         <div class="row me-4 my-3 align-items-center">
-          <p class="col-5"><%= booking.jetpack.model %></p>
+          <p class="col-5">Booking status: <%= booking.status %></p>
           <p class="col-5"><%= booking.booking_date %></p>
           <%= link_to "Cancel booking", "#", class: "btn btn-danger col-2" %>
         </div>
