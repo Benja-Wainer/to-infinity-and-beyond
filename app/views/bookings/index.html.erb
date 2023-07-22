@@ -1,6 +1,26 @@
-<h1>Bookings#index</h1>
-<% @bookings.each do |booking| %>
-  <%= booking.jetpack.title %>
-  <%= booking.user.username %>
-  <%= booking.booking_date %>
-<% end %>
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <h1><%= current_user.username.capitalize %>, here are your bookings</h1>
+  </div>
+  <% @bookings.each do |booking| %>
+    <div class="card-booking my-4">
+      <% if booking.jetpack.photo.attached? %>
+        <%= cl_image_tag booking.jetpack.photo.key, height: 120, crop: :fill, class: "card-img-top" %>
+      <% else %>
+        <img class="card-img-top" src=<%= image_path('default.jpg') %> alt="Default jetpack picture">
+      <% end %>
+      <div class="card-booking-infos w-100">
+        <div class="row me-4 my-3 align-items-center">
+          <h2 class="col-5"><%= booking.jetpack.title %></h2>
+          <h2 class="col-5"><%= booking.comment %></h2>
+          <%= link_to "Jetpack details", jetpack_path(booking.jetpack), class: "btn btn-warning col-2" %>
+        </div>
+        <div class="row me-4 my-3 align-items-center">
+          <p class="col-5"><%= booking.jetpack.model %></p>
+          <p class="col-5"><%= booking.booking_date %></p>
+          <%= link_to "Cancel booking", jetpack_path(booking.jetpack), class: "btn btn-danger col-2" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
