@@ -16,8 +16,16 @@
             <% end %>
             <div class="card-body">
               <h5 class="card-title text-truncate"><%= jetpack.title %></h5>
-              <p class="card-text text-start" style="font-weight: bold; float: left" ><%= jetpack.model %></p>
-              <p class="card-text font-weight-bold text-end" style="font-weight: bold; font-size: larger" >$<%= jetpack.price %></p>
+              <div class="container px-0">
+                <div class="row align-items">
+                  <div class="col-6">
+                    <p class="card-text text-start text-truncate" style="font-weight: bold" ><%= jetpack.model %></p>
+                  </div>
+                  <div class="col-6">
+                    <p class="card-text font-weight-bold text-end" style="font-weight: bold; font-size: large" >$<%= sprintf("%.2f", jetpack.price) %></p>
+                  </div>
+                </div>
+              </div>
               <%= link_to "More details", jetpack_path(jetpack), class: "btn btn-warning btn-block w-100" %>
             </div>
           </div>
