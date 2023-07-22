@@ -32,8 +32,11 @@
                 </div>
               </li>
             <% else %>
-              <li class="nav-item mx-2">
-                <%= link_to "Log in", new_user_session_path, class: "nav-btn-purple" %>
+              <li class="nav-item">
+                <%= link_to "Log in", new_user_session_path, class: "nav-btn-purple mx-2" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Sign up", new_user_registration_path, class: "nav-btn-white mx-2" %>
               </li>
             <% end %>
           </ul>
