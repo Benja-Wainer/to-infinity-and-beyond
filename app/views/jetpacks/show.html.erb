@@ -4,12 +4,12 @@
     <img class="show-banner" src=<%= image_path('default.jpg') %> alt="Default jetpack picture">
   <% end %>
   <div class="container mt-3">
-    <h2 class="text-center"><%= @jetpack.title %></h2>
+    <h1 class="text-center"><%= @jetpack.title %></h1>
     <div class="row">
       <div class="col-12 col-md-6 col-lg-8">
-        <p class="text-secondary"><%= @jetpack.user.username %></p>
-        <p>Model: <%= @jetpack.model %></p>
         <div class="description">
+          <p> Owner: <%= @jetpack.user.username %></p>
+          <p>Model: <%= @jetpack.model %></p>
           <p><%= @jetpack.description %></p>
         </div>
       </div>
@@ -22,5 +22,5 @@
           <% end %>
       </div>
     </div>
-      <%= link_to "Go back", jetpacks_path , class: "btn btn-success my-3"%>
+      <%= link_to "Go back", jetpacks_path , class: "btn my-3 btn-purple"%>
   </div>
