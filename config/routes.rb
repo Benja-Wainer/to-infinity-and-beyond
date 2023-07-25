@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[index create]
   end
 
+  resources :bookings, only: [:update]
+
   namespace :owner do
     resources :bookings, only: :index
   end

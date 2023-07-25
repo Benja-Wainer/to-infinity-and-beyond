@@ -2,7 +2,11 @@
   <div class="d-flex justify-content-center">
     <h1><%= current_user.username %>, here are your bookings</h1>
   </div>
-  <% @bookings.each do |booking| %>
+
+  <% if !@incoming_bookings.empty? %>
+
+  <% end %>
+  <% @outgoing_bookings.each do |booking| %>
     <div class="card-booking my-4">
       <% if booking.jetpack.photo.attached? %>
         <%= cl_image_tag booking.jetpack.photo.key, height: 120, crop: :fill, class: "card-img-top" %>
