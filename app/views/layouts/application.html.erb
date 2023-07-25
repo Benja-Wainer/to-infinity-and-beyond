@@ -24,19 +24,19 @@
             <% if user_signed_in? %>
             <p class="navbar-welcome-message">Welcome <%= current_user.username %></p>
               <li class="nav-item active">
-                <%= link_to "My bookings", bookings_index_path, class: "nav-btn-purple mx-2" %>
+                <%= link_to "My bookings", bookings_index_path, class: "btn-purple mx-2" %>
               </li>
               <li class="nav-item">
-                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-btn-gray mx-2" %>
+                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn-gray mx-2" %>
               </li>
                 </div>
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to "Log in", new_user_session_path, class: "nav-btn-purple mx-2" %>
+                <%= link_to "Log in", new_user_session_path, class: "btn-purple mx-2" %>
               </li>
               <li class="nav-item">
-                <%= link_to "Sign up", new_user_registration_path, class: "nav-btn-white mx-2" %>
+                <%= link_to "Sign up", new_user_registration_path, class: "btn-white mx-2" %>
               </li>
             <% end %>
           </ul>
