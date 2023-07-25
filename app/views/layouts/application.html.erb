@@ -17,7 +17,7 @@
         <h2 class="navbar-brand my-0 flex-grow-1">To Infinity and Beyond</h2>
         <%= form_with url: jetpacks_path, class: "d-flex me-2", method: :get do %>
           <%= text_field_tag :query, params[:query], class: "search-form-control bg-transparent caret-white" %>
-          <%= submit_tag "🔍", name: "", class: "btn btn-outline-secondary fas fa-search" %>
+          <%= submit_tag "🔍", name: "", class: "btn btn-white-outline text-white ms-2 fas fa-search" %>
         <% end %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
