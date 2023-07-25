@@ -1,11 +1,36 @@
 <div class="container">
   <div class="d-flex justify-content-center">
-    <h1><%= current_user.username %>, here are your bookings</h1>
+    <h1><%= current_user.username %>, here are your incoming bookings</h1>
   </div>
 
   <% if !@incoming_bookings.empty? %>
-
+  <% @incoming_bookings.each do |booking| %>
+    <div class="card-booking my-4">
+      <% if booking.jetpack.photo.attached? %>
+        <%= cl_image_tag booking.jetpack.photo.key, height: 120, crop: :fill, class: "card-img-top" %>
+      <% else %>
+        <img class="card-img-top" src=<%= image_path('default.jpg') %> alt="Default jetpack picture">
+      <% end %>
+      <div class="card-booking-infos w-100">
+        <div class="row me-4 my-3 align-items-center">
+          <h2 class="col-5"><%= booking.jetpack.title %></h2>
+          <h2 class="col-5"><%= booking.comment %></h2>
+          <%= link_to "Approve", jetpack_path(booking.jetpack), class: "btn btn-success col-2" %>
+        </div>
+        <div class="row me-4 my-3 align-items-center">
+          <p class="col-5">Booking status: <%= booking.status %></p>
+          <p class="col-5"><%= booking.booking_date %></p>
+          <%= link_to "Deny", "#", class: "btn btn-danger col-2" %>
+        </div>
+      </div>
+    </div>
   <% end %>
+  <% end %>
+
+  <div class="d-flex justify-content-center">
+    <h1><%= current_user.username %>, here are your upcoming bookings</h1>
+  </div>
+
   <% @outgoing_bookings.each do |booking| %>
     <div class="card-booking my-4">
       <% if booking.jetpack.photo.attached? %>
