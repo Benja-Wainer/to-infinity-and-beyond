@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :jetpacks, only: %i[index show new create] do
     resources :bookings, only: %i[index create]
   end
+  resources :bookings, only: %i[destroy]
 
   namespace :owner do
     resources :bookings, only: :index
