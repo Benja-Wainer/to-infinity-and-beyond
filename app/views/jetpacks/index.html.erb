@@ -1,10 +1,8 @@
 <div class="index-background">
-  <div class="container">
-    <div class="p-2 text-end">
-      <%= link_to "Add Jetpack", new_jetpack_path, class: "btn btn-success" %>
-    </div>
-  </div>
   <div class="container d-flex flex-wrap">
+    <div class="me-3 d-flex w-100 justify-content-end">
+      <%= link_to "Add Jetpack", new_jetpack_path, class: "btn btn-orange mt-3 justify-content-end" %>
+    </div>
     <div class="row">
       <% @jetpacks.each do |jetpack| %>
         <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
@@ -32,5 +30,4 @@
         </div>
       <% end %>
     </div>
-  </div>
 </div>
