@@ -16,3 +16,14 @@
     }
   }
 }
+
+.signup-form {
+ color: white;
+ background-color: $gray;
+ padding: 30px 50px;
+ border-radius: 10px;
+
+ .form-text {
+  color: white;
+ }
+}
