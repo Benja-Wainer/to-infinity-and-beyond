@@ -3,7 +3,11 @@ class JetpacksController < ApplicationController
   before_action :set_jetpack, only: [:show]
 
   def index
-    @jetpacks = Jetpack.all
+    if params[:query].present?
+      @jetpacks = Jetpack.search_by_model_and_description(params[:query])
+    else
+      @jetpacks = Jetpack.all
+    end
   end
 
   def show
