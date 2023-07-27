@@ -1,9 +1,9 @@
 <div class="container">
+
+  <% if !@incoming_bookings.empty? %>
   <div class="d-flex justify-content-center">
     <h1><%= current_user.username %>, here are your incoming bookings</h1>
   </div>
-
-  <% if !@incoming_bookings.empty? %>
   <% @incoming_bookings.each do |booking| %>
     <div class="card-booking my-4">
       <% if booking.jetpack.photo.attached? %>
@@ -38,9 +38,17 @@
   <% end %>
   <% end %>
 
+   <% if !@outgoing_bookings.empty? %>
   <div class="d-flex justify-content-center">
     <h1><%= current_user.username %>, here are your upcoming bookings</h1>
   </div>
+   <% else %>
+  <div class="d-flex flex-column justify-content-center">
+      <h1 class="text-center"><%= current_user.username %>, you have no bookings.</h1>
+
+      <%= link_to "See Jetpacks", jetpacks_path, class: "btn btn-purple d-inline text-center m-auto" %>
+  </div>
+   <% end %>
 
   <% @outgoing_bookings.each do |booking| %>
     <div class="card-booking my-4">
