@@ -60,7 +60,7 @@
         </div>
         <div class="col-2">
           <%= link_to "Jetpack details", jetpack_path(booking.jetpack), class: "btn btn-warning mb-3" %>
-          <%= link_to "Cancel booking", bookings_index_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+          <%= link_to "Cancel booking", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
         </div>
       </div>
     </div>
