@@ -1,4 +1,4 @@
-<%= simple_form_for [booking], html: { class: "booking-form"} do |f| %>
+<%= simple_form_for [booking], html: { class: "booking-form col-md-8 col-lg-6 col-xxl-4"} do |f| %>
   <%= f.input :booking_date, html5: true  %>
   <%= f.input :comment, label: "Comments (100 characters max)" %>
   <%= f.submit "Update your booking", class: "btn booking-submit" %>

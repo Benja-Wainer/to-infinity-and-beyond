@@ -25,21 +25,21 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto">
             <% if user_signed_in? %>
-            <p class="navbar-welcome-message">Welcome <%= current_user.username %></p>
+            <p class="navbar-welcome-message text-center">Welcome <%= current_user.username %></p>
               <li class="nav-item active">
-                <%= link_to "My bookings", bookings_index_path, class: "btn-purple mx-2" %>
+                <%= link_to "My bookings", bookings_index_path, class: "btn-purple mx-2 text-center" %>
               </li>
               <li class="nav-item">
-                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn-gray mx-2" %>
+                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn-gray mx-2 text-center" %>
               </li>
                 </div>
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to "Log in", new_user_session_path, class: "btn-purple mx-2" %>
+                <%= link_to "Log in", new_user_session_path, class: "btn-purple mx-2 text-center" %>
               </li>
               <li class="nav-item">
-                <%= link_to "Sign up", new_user_registration_path, class: "btn-white mx-2" %>
+                <%= link_to "Sign up", new_user_registration_path, class: "btn-white mx-2 text-center" %>
               </li>
             <% end %>
           </ul>
