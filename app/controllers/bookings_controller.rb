@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: %i[edit update destroy]
+
   def index
     @outgoing_bookings = Booking.where(user: current_user)
     @user_jetpacks = current_user.jetpacks
@@ -17,8 +19,19 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @booking.update(booking_params)
+      redirect_to bookings_index_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+
   def destroy
-    @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to bookings_index_path, status: :see_other
   end
@@ -35,6 +48,10 @@ class BookingsController < ApplicationController
   end
 
   private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
   def booking_params
     params.require(:booking).permit(:status, :booking_date, :comment)
