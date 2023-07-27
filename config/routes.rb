@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: %i[destroy]
 
+  resources :bookings, only: [:update]
+
   namespace :owner do
     resources :bookings, only: :index
   end
