@@ -36,17 +36,6 @@ class BookingsController < ApplicationController
     redirect_to bookings_index_path, status: :see_other
   end
 
-  def update
-    @booking = Booking.find(params[:id])
-    if @booking.update(booking_params)
-      # redirect_to # up to you...
-      redirect_to bookings_index_path
-    else
-      # render # where was the booking update form?
-      render :update, status: :unprocessable_entity
-    end
-  end
-
   private
 
   def set_booking
