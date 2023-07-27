@@ -54,11 +54,11 @@
           <h2 class="mb-4"><%= booking.jetpack.title %></h2>
           <p>Booking status: <%= booking.status %></p>
         </div>
-        <div class="col-5">
-          <h2 class="mb-4"><%= booking.comment %></h2 >
+        <div class="col-4">
+          <h2 class="mb-4 text-truncate"><%= booking.comment %></h2 >
           <p><%= booking.booking_date %></p>
         </div>
-        <div class="col-2">
+        <div class="col-3">
           <%= link_to "Jetpack details", jetpack_path(booking.jetpack), class: "btn btn-warning mb-3" %>
           <%= link_to "Cancel booking", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
         </div>

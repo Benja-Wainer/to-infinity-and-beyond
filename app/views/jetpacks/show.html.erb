@@ -8,7 +8,7 @@
     <div class="row">
       <div class="col-12 col-md-6 col-lg-8">
         <div class="description">
-          <p> Owner: <%= @jetpack.user.username %></p>
+          <p>Owner: <%= @jetpack.user.username %></p>
           <p>Model: <%= @jetpack.model %></p>
           <p><%= @jetpack.description %></p>
         </div>
@@ -16,7 +16,7 @@
       <div class="col-12 col-md-6 col-lg-4">
         <h2 class="text-end"><strong>$<%= sprintf("%.2f", @jetpack.price) %></strong></h2>
           <%= simple_form_for [@jetpack, @booking], html: { class: "booking-form"} do |f| %>
-            <%= f.input :booking_date %>
+            <%= f.input :booking_date, html5: true %>
             <%= f.input :comment, label: "Comments (100 characters max)" %>
             <%= f.submit "Book now!", class: "btn booking-submit" %>
           <% end %>
