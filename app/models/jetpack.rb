@@ -1,6 +1,7 @@
 class Jetpack < ApplicationRecord
   belongs_to :user
   has_one_attached :photo
+  has_many :reviews, dependent: :destroy
 
   validates :title, :model, :price, :description, presence: true
   validates :description, length: { maximum: 100 }
