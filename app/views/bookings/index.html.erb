@@ -18,7 +18,8 @@
         <div class="row me-4 my-3 align-items-center">
           <p class="col-5">Booking status: <%= booking.status %></p>
           <p class="col-5"><%= booking.booking_date %></p>
-          <%= link_to "Cancel booking", "#", class: "btn btn-danger col-2" %>
+          <%= link_to "Cancel booking", booking_path(booking) ,data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+ class: "btn btn-danger col-2" %>
         </div>
       </div>
     </div>
