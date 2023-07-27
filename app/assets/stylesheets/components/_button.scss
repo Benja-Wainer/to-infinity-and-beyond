@@ -1,7 +1,7 @@
 .btn-orange {
   color: white;
   padding: 8px 24px;
-  border-radius: 27px;
+  border-radius: 11px;
   background: #C16320;
   transition: background 0.3s ease;
 }
@@ -11,7 +11,86 @@
   color: white;
 }
 
-.btn-purple{
-  background-color: $purple;
+.btn-purple {
+  display: block;
+  padding: 5px 10px;
+  background-color: #502967;
   color: white;
+  border-radius: 11px;
+  border: 1px solid #BCBCBC;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $primary;
+    color: white;
+    text-decoration: none;
+    transition-duration: 1s;
+  }
+}
+
+.btn-midnight {
+  display: block;
+  padding: 5px 10px;
+  background-color: #2e2967;
+  color: white;
+  border-radius: 11px;
+  border: 1px solid #BCBCBC;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $primary;
+    color: white;
+    text-decoration: none;
+    transition-duration: 1s;
+  }
+}
+
+.btn-gray {
+  display: block;
+  padding: 5px 10px;
+  background-color: #404040;
+  color: white;
+  border-radius: 11px;
+  border: 1px solid #BCBCBC;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #BCBCBC;
+    color: #404040;
+    text-decoration: none;
+    transition-duration: 1s;
+  }
+}
+
+.btn-white {
+  display: block;
+  padding: 5px 10px;
+  background-color: #BCBCBC;
+  color: black;
+  border-radius: 11px;
+  border: 1px solid #404040;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #404040;
+    color: white;
+    border: 1px solid #BCBCBC;
+    text-decoration: none;
+    transition-duration: 1s;
+  }
+}
+
+.btn-white-outline {
+  display: block;
+  padding: 5px 10px;
+  border-radius: 11px;
+  border: 1px solid #bcbcbc;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #bcbcbc;
+    border: 1px solid #BCBCBC;
+    text-decoration: none;
+    transition-duration: 1s;
+  }
 }

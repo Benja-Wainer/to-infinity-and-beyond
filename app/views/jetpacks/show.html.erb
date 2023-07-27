@@ -21,6 +21,18 @@
             <%= f.submit "Book now!", class: "btn booking-submit" %>
           <% end %>
       </div>
+      <h1>Leave a Review</h1>
+        <%= simple_form_for [@jetpack, @review] do |f| %>
+          <%= f.input :content %>
+          <%= f.submit "Submit review", class: "btn btn-primary" %>
+        <% end %>
+        <p><strong>Reviews</strong></p>
+        <ul class="list-group">
+          <% @jetpack.reviews.each do |review| %>
+            <li class="list-group-item"><%= review.content %></li>
+          <% end %>
+        </ul>
+        <br>
     </div>
       <%= link_to "Go back", jetpacks_path , class: "btn my-3 btn-purple"%>
   </div>

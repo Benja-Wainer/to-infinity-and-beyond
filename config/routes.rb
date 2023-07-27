@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reviews/new'
   get 'bookings/new'
   get 'bookings/create'
   get 'bookings/index'
@@ -11,8 +12,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :jetpacks, only: %i[index show new create] do
+    resources :reviews, only: [:new, :create]
     resources :bookings, only: %i[index create]
   end
+  resources :bookings, only: %i[destroy]
 
   resources :bookings, only: [:update]
 
