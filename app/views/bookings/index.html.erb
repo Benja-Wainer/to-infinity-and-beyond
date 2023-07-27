@@ -11,16 +11,27 @@
       <% else %>
         <img class="card-img-top" src=<%= image_path('default.jpg') %> alt="Default jetpack picture">
       <% end %>
-      <div class="card-booking-infos w-100">
-        <div class="row me-4 my-3 align-items-center">
-          <h2 class="col-5"><%= booking.jetpack.title %></h2>
-          <h2 class="col-5"><%= booking.comment %></h2>
-          <%= link_to "Approve", jetpack_path(booking.jetpack), class: "btn btn-success col-2" %>
+      <div class="card-booking-infos w-100 h-100 row">
+        <div class="col-5">
+          <h2 class="mb-4"><%= booking.jetpack.title %></h2>
+          <p>Booking status: <%= booking.status %></p>
         </div>
-        <div class="row me-4 my-3 align-items-center">
-          <p class="col-5">Booking status: <%= booking.status %></p>
-          <p class="col-5"><%= booking.booking_date %></p>
-          <%= link_to "Deny", "#", class: "btn btn-danger col-2" %>
+        <div class="col-5">
+          <h2 class="mb-4"><%= booking.comment %></h2 >
+          <p><%= booking.booking_date %></p>
+        </div>
+        <div class="col-2">
+          <% if booking.pending? %>
+            <%= simple_form_for booking do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+            <%= f.submit 'Accept', class: 'btn btn-success mt-n4', data: { turbo_confirm: 'Are you sure?' } %>
+            <% end %>
+
+            <%= simple_form_for booking do |f| %>
+              <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+              <%= f.submit 'Reject', class: 'btn btn-danger', data: { turbo_confirm: 'Are you sure?' } %>
+            <% end %>
+        <% end %>
         </div>
       </div>
     </div>
@@ -38,16 +49,18 @@
       <% else %>
         <img class="card-img-top" src=<%= image_path('default.jpg') %> alt="Default jetpack picture">
       <% end %>
-      <div class="card-booking-infos w-100">
-        <div class="row me-4 my-3 align-items-center">
-          <h2 class="col-5"><%= booking.jetpack.title %></h2>
-          <h2 class="col-5"><%= booking.comment %></h2>
-          <%= link_to "Jetpack details", jetpack_path(booking.jetpack), class: "btn btn-warning col-2" %>
+      <div class="card-booking-infos w-100 h-100 row">
+        <div class="col-5">
+          <h2 class="mb-4"><%= booking.jetpack.title %></h2>
+          <p>Booking status: <%= booking.status %></p>
         </div>
-        <div class="row me-4 my-3 align-items-center">
-          <p class="col-5">Booking status: <%= booking.status %></p>
-          <p class="col-5"><%= booking.booking_date %></p>
-          <%= link_to "Cancel booking", "#", class: "btn btn-danger col-2" %>
+        <div class="col-5">
+          <h2 class="mb-4"><%= booking.comment %></h2 >
+          <p><%= booking.booking_date %></p>
+        </div>
+        <div class="col-2">
+          <%= link_to "Jetpack details", jetpack_path(booking.jetpack), class: "btn btn-warning mb-3" %>
+          <%= link_to "Cancel booking", bookings_index_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
         </div>
       </div>
     </div>
