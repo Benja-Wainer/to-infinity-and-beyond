@@ -23,14 +23,14 @@ end
 puts "Finished seeding users"
 
 puts "Making trevor user"
-user = User.create!(
+User.create!(
   username: "Trevor",
   email: "trevor@trevor.com",
   password: "123456",
 )
 
 puts "Making Bowman user"
-user = User.create!(
+User.create!(
   username: "Bowman",
   email: "Bowman@bowman.com",
   password: "123456",
