@@ -9,6 +9,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.jetpack = @jetpack
     @review.user = current_user
+    @review.save
     redirect_to jetpack_path(@jetpack)
   end
 
