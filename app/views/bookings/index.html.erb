@@ -6,39 +6,39 @@
         <h1>Listings for <%= jetpack.title %></h1>
       </div>
       <% end %>
-  <% jetpack.bookings.each do |booking| %>
-    <div class="card-booking my-4">
-      <% if booking.jetpack.photo.attached? %>
-        <%= cl_image_tag booking.jetpack.photo.key, height: 120, crop: :fill, class: "card-img-top" %>
-      <% else %>
-        <img class="card-img-top" src=<%= image_path('default.jpg') %> alt="Default jetpack picture">
-      <% end %>
-      <div class="card-booking-infos w-100 h-100 row">
-        <div class="col-5">
-          <h2 class="mb-4"><%= booking.user.username %></h2>
-          <p><%= booking.status %></p>
-        </div>
-        <div class="col-5">
-          <h2 class="mb-4"><%= booking.comment %></h2 >
-          <p><%= booking.booking_date %></p>
-        </div>
-        <div class="col-2">
-          <% if booking.pending? %>
-            <%= simple_form_for booking do |f| %>
-            <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
-            <%= f.submit 'Accept', class: 'btn btn-success mt-n4', data: { turbo_confirm: 'Are you sure?' } %>
+      <% jetpack.bookings.each do |booking| %>
+        <div class="card-booking my-4">
+          <% if booking.jetpack.photo.attached? %>
+            <%= cl_image_tag booking.jetpack.photo.key, height: 120, crop: :fill, class: "card-img-top" %>
+          <% else %>
+            <img class="card-img-top" src=<%= image_path('default.jpg') %> alt="Default jetpack picture">
           <% end %>
-          <%= simple_form_for booking do |f| %>
-            <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
-            <%= f.submit 'Reject', class: 'btn btn-danger', data: { turbo_confirm: 'Are you sure?' } %>
-          <% end %>
-        <% end %>
+          <div class="card-booking-infos w-100 h-100 row">
+            <div class="col-5">
+              <h2 class="mb-4"><%= booking.user.username %></h2>
+              <p><%= booking.status %></p>
+            </div>
+            <div class="col-5">
+              <h2 class="mb-4"><%= booking.comment %></h2 >
+              <p><%= booking.booking_date %></p>
+            </div>
+            <div class="col-2">
+              <% if booking.pending? %>
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+                  <%= f.submit 'Accept', class: 'btn btn-success mt-n4', data: { turbo_confirm: 'Are you sure?' } %>
+                <% end %>
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+                  <%= f.submit 'Reject', class: 'btn btn-danger', data: { turbo_confirm: 'Are you sure?' } %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       <% end %>
     <% end %>
   <% end %>
-        </div>
-      </div>
-    </div>
 
    <% if !@outgoing_bookings.empty? %>
   <div class="d-flex justify-content-center">
