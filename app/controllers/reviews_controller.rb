@@ -8,7 +8,6 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.jetpack = @jetpack
-    @review.save
     redirect_to jetpack_path(@jetpack)
   end
 
