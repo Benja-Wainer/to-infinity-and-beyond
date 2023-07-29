@@ -19,7 +19,7 @@
       </div>
       <h1>Leave a Review</h1>
         <%= render partial: "jetpacks/review_form", locals: {jetpack: @jetpack, review: Review.new} %>
-        <p><strong>Reviews</strong></p>
+        <p><strong>What other Jetpack Enthusiasts are saying!</strong></p>
         <ul class="list-group">
           <% @jetpack.reviews.each do |review| %>
             <li class="list-group-item"><%= review.content %> - <%= review.user.username %></li>
