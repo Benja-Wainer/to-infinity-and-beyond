@@ -1,4 +1,4 @@
 <%= simple_form_for [jetpack, review] do |f| %>
-  <%= f.input :content %>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <%= f.input :content, label: "How was your Jetpack experience?" %>
+  <%= f.submit "Leave a review", class: "btn btn-primary" %>
 <% end %>
