@@ -1,10 +1,12 @@
 <div class="container">
-
   <% if !@incoming_bookings.empty? %>
-  <div class="d-flex justify-content-center">
-    <h1><%= current_user.username %>, here are your incoming bookings</h1>
-  </div>
-  <% @incoming_bookings.each do |booking| %>
+    <% @user_jetpacks.each do |jetpack| %>
+      <% if !jetpack.bookings.empty? %>
+      <div class="d-flex justify-content-center">
+        <h1>Listings for <%= jetpack.title %></h1>
+      </div>
+      <% end %>
+  <% jetpack.bookings.each do |booking| %>
     <div class="card-booking my-4">
       <% if booking.jetpack.photo.attached? %>
         <%= cl_image_tag booking.jetpack.photo.key, height: 120, crop: :fill, class: "card-img-top" %>
@@ -13,8 +15,8 @@
       <% end %>
       <div class="card-booking-infos w-100 h-100 row">
         <div class="col-5">
-          <h2 class="mb-4"><%= booking.jetpack.title %></h2>
-          <p>Booking status: <%= booking.status %></p>
+          <h2 class="mb-4"><%= booking.user.username %></h2>
+          <p><%= booking.status %></p>
         </div>
         <div class="col-5">
           <h2 class="mb-4"><%= booking.comment %></h2 >
@@ -25,28 +27,27 @@
             <%= simple_form_for booking do |f| %>
             <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
             <%= f.submit 'Accept', class: 'btn btn-success mt-n4', data: { turbo_confirm: 'Are you sure?' } %>
-            <% end %>
-
-            <%= simple_form_for booking do |f| %>
-              <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
-              <%= f.submit 'Reject', class: 'btn btn-danger', data: { turbo_confirm: 'Are you sure?' } %>
-            <% end %>
+          <% end %>
+          <%= simple_form_for booking do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+            <%= f.submit 'Reject', class: 'btn btn-danger', data: { turbo_confirm: 'Are you sure?' } %>
+          <% end %>
         <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
         </div>
       </div>
     </div>
-  <% end %>
-  <% end %>
 
    <% if !@outgoing_bookings.empty? %>
   <div class="d-flex justify-content-center">
-    <h1><%= current_user.username %>, here are your upcoming bookings</h1>
+    <h1>Your Experiences</h1>
   </div>
    <% else %>
   <div class="d-flex flex-column justify-content-center">
       <h1 class="text-center"><%= current_user.username %>, you have no bookings.</h1>
 
-      <%= link_to "See Jetpacks", jetpacks_path, class: "btn btn-purple d-inline text-center m-auto" %>
   </div>
    <% end %>
 
@@ -60,7 +61,7 @@
       <div class="card-booking-infos w-100 h-100 row">
         <div class="col-5">
           <h2 class="mb-4"><%= booking.jetpack.title %></h2>
-          <p>Booking status: <%= booking.status %></p>
+          <p><%= booking.status %></p>
         </div>
         <div class="col-4">
           <h2 class="mb-4 text-truncate"><%= booking.comment %></h2 >
@@ -78,4 +79,7 @@
       </div>
     </div>
   <% end %>
+  <div class="text-center">
+    <%= link_to "Book an Experience", jetpacks_path, class: "btn btn-purple d-inline text-center m-auto" %>
+  </div>
 </div>

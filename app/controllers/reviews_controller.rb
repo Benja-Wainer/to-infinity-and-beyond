@@ -1,13 +1,14 @@
 class ReviewsController < ApplicationController
   before_action :set_jetpack, only: %i[new create]
-  def new
-    @jetpack = Jetpack.find(params[:jetpack_id])
-    @review = Review.new
-  end
+  # def new
+  #   @jetpack = Jetpack.find(params[:jetpack_id])
+  #   @review = Review.new
+  # end
 
   def create
     @review = Review.new(review_params)
     @review.jetpack = @jetpack
+    @review.user = current_user
     redirect_to jetpack_path(@jetpack)
   end
 
