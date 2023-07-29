@@ -16,7 +16,11 @@
           <div class="card-booking-infos w-100 h-100 row">
             <div class="col-5">
               <h2 class="mb-4"><%= booking.user.username %></h2>
-              <p><%= booking.status %></p>
+              <% if booking.status == "accepted" %>
+                <p style="color: blue"><%= booking.status %></p>
+              <% else %>
+                <p style="color: red"><%= booking.status %></p>
+              <% end %>
             </div>
             <div class="col-5">
               <h2 class="mb-4"><%= booking.comment %></h2 >
