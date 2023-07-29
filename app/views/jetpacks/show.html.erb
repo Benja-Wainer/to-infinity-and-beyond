@@ -29,7 +29,7 @@
         <p><strong>Reviews</strong></p>
         <ul class="list-group">
           <% @jetpack.reviews.each do |review| %>
-            <li class="list-group-item"><%= review.content %></li>
+            <li class="list-group-item"><%= review.content %> - <%= review.user.username %></li>
           <% end %>
         </ul>
         <br>
