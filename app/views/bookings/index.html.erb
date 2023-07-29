@@ -48,12 +48,7 @@
   <div class="d-flex justify-content-center">
     <h1>Your Experiences</h1>
   </div>
-   <% else %>
-  <div class="d-flex flex-column justify-content-center">
-      <h1 class="text-center"><%= current_user.username %>, you have no bookings.</h1>
-
-  </div>
-   <% end %>
+  <% end %>
 
   <% @outgoing_bookings.each do |booking| %>
     <div class="card-booking my-4">
