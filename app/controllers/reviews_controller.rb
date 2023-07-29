@@ -9,11 +9,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.jetpack = @jetpack
     @review.user = current_user
-    if @review.save
-      redirect_to jetpack_path(@jetpack)
-    else
-      render "jetpacks/show", status: :unprocessable_entity
-    end
+    redirect_to jetpack_path(@jetpack)
   end
 
   private

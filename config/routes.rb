@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   namespace :owner do
     resources :bookings, only: :index
   end
+
+  get "liability_waiver", to: "pages#liability_waiver"
 end
