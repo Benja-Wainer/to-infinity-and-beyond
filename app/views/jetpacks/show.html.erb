@@ -8,23 +8,27 @@
     <div class="row">
       <div class="col-12 col-md-6 col-lg-8">
         <div class="description">
-          <p>Owner: <%= @jetpack.user.username %></p>
-          <p>Model: <%= @jetpack.model %></p>
-          <p><%= @jetpack.description %></p>
+          <p><strong>Owner:</strong> <%= @jetpack.user.username %></p>
+          <p><strong>Model</strong> <%= @jetpack.model %></p>
+          <h3 class="text-center pt-5 fw-bold"><%= @jetpack.description %></h3>
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-4">
         <h2 class="text-end"><strong>$<%= sprintf("%.2f", @jetpack.price) %></strong></h2>
         <%= render partial: "bookings/new", locals: {jetpack: @jetpack, booking: @booking} %>
       </div>
-      <h1>Leave a Review</h1>
+      <h1 class="pt-5">Leave a Review</h1>
         <%= render partial: "jetpacks/review_form", locals: {jetpack: @jetpack, review: Review.new} %>
-        <p><strong>What other Jetpack Enthusiasts are saying!</strong></p>
-        <ul class="list-group">
-          <% @jetpack.reviews.each do |review| %>
-            <li class="list-group-item"><%= review.content %> - <%= review.user.username %></li>
-          <% end %>
-        </ul>
+        <p class="pt-5"><strong>See what other Jetpack Enthusiasts are saying!</strong></p>
+        <% if !@jetpack.reviews.empty? %>
+          <ul class="list-group">
+            <% @jetpack.reviews.each do |review| %>
+              <li class="list-group-item"><%= review.content %> - <%= review.user.username %></li>
+            <% end %>
+          </ul>
+        <% else %>
+          <p>No reviews yet...</p>
+        <% end %>
         <br>
     </div>
       <%= link_to "Go back", jetpacks_path , class: "btn my-3 btn-purple"%>
