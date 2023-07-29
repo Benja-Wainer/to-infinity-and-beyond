@@ -22,6 +22,19 @@ puts "Creating 5 users"
 end
 puts "Finished seeding users"
 
+puts "Making trevor user"
+User.create!(
+  username: "Trevor",
+  email: "trevor@trevor.com",
+  password: "123456",
+)
+
+puts "Making Bowman user"
+User.create!(
+  username: "Bowman",
+  email: "Bowman@bowman.com",
+  password: "123456",
+)
 
 # puts "Destroying all jetpacks"
 # Jetpack.destroy_all
@@ -110,5 +123,65 @@ jetpack = Jetpack.new(
 )
 file = URI.open("https://res.cloudinary.com/dm54zi0ff/image/upload/v1690003889/mando_ckt07b.jpg")
 jetpack.photo.attach(io: file, filename: "mando.png", content_type: "image/png")
+jetpack.save
+puts "Creating jetpack number #{jetpack.id}"
+
+jetpack = Jetpack.new(
+  title: "The Falcon",
+  model: Faker::Science.tool,
+  price: rand(100.300),
+  description: "Have so much fun you'll forget how bad Falcon and the Winter soldier was",
+  user_id: rand(1..5)
+)
+file = URI.open("https://res.cloudinary.com/dm54zi0ff/image/upload/v1690596005/falcon_jetpack_roqasg.jpg")
+jetpack.photo.attach(io: file, filename: "falcon.png", content_type: "image/png")
+jetpack.save
+puts "Creating jetpack number #{jetpack.id}"
+
+jetpack = Jetpack.new(
+  title: "The Original Infinity",
+  model: Faker::Science.tool,
+  price: rand(100.300),
+  description: "Make Woody jealous with this jetpack made to make you reconnect with your youth!",
+  user_id: rand(1..5)
+)
+file = URI.open("https://res.cloudinary.com/dm54zi0ff/image/upload/v1690607107/and_beyond_flehua.webp")
+jetpack.photo.attach(io: file, filename: "infinity.png", content_type: "image/png")
+jetpack.save
+puts "Creating jetpack number #{jetpack.id}"
+
+jetpack = Jetpack.new(
+  title: "The Not a Jetpack Jetpack",
+  model: Faker::Science.tool,
+  price: rand(100.300),
+  description: "With great power comes great Jetpacks",
+  user_id: rand(1..5)
+)
+file = URI.open("https://res.cloudinary.com/dm54zi0ff/image/upload/v1690607107/not_a_jetpack_jetpack_qcqzdf.jpg")
+jetpack.photo.attach(io: file, filename: "docock.png", content_type: "image/png")
+jetpack.save
+puts "Creating jetpack number #{jetpack.id}"
+
+jetpack = Jetpack.new(
+  title: "The Space Junky",
+  model: Faker::Science.tool,
+  price: rand(100.300),
+  description: "This Jetpack is out of this world...",
+  user_id: rand(1..5)
+)
+file = URI.open("https://res.cloudinary.com/dm54zi0ff/image/upload/v1690607109/space_jetpck_hfx4yy.jpg")
+jetpack.photo.attach(io: file, filename: "space.png", content_type: "image/png")
+jetpack.save
+puts "Creating jetpack number #{jetpack.id}"
+
+jetpack = Jetpack.new(
+  title: "The Gas Guzzler",
+  model: Faker::Science.tool,
+  price: rand(100.300),
+  description: "Punch mother nature in the face with a jetpack meant burn through gas like a wildfire in california",
+  user_id: rand(1..5)
+)
+file = URI.open("https://res.cloudinary.com/dm54zi0ff/image/upload/v1690607108/gas_guzzler_kvzs6x.jpg")
+jetpack.photo.attach(io: file, filename: "gasguzzler.png", content_type: "image/png")
 jetpack.save
 puts "Creating jetpack number #{jetpack.id}"
