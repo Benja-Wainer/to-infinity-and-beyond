@@ -15,14 +15,21 @@
       </div>
       <div class="col-12 col-md-6 col-lg-4">
         <h2 class="text-end"><strong>$<%= sprintf("%.2f", @jetpack.price) %></strong></h2>
-        <%= render partial: "bookings/new", locals: {jetpack: @jetpack, booking: @booking} %>
+          <%= simple_form_for [@jetpack, @booking], html: { class: "booking-form"} do |f| %>
+            <%= f.input :booking_date, html5: true %>
+            <%= f.input :comment, label: "Comments (100 characters max)" %>
+            <%= f.submit "Book now!", class: "btn booking-submit" %>
+          <% end %>
       </div>
       <h1>Leave a Review</h1>
-        <%= render partial: "jetpacks/review_form", locals: {jetpack: @jetpack, review: Review.new} %>
-        <p><strong>What other Jetpack Enthusiasts are saying!</strong></p>
+        <%= simple_form_for [@jetpack, @review] do |f| %>
+          <%= f.input :content %>
+          <%= f.submit "Submit review", class: "btn btn-primary" %>
+        <% end %>
+        <p><strong>Reviews</strong></p>
         <ul class="list-group">
           <% @jetpack.reviews.each do |review| %>
-            <li class="list-group-item"><%= review.content %> - <%= review.user.username %></li>
+            <li class="list-group-item" style="font-size: x-large"><i class="fa-solid fa-quote-left mx-3">  </i><%= review.content %> -<%= review.user.username  %></li>
           <% end %>
         </ul>
         <br>
