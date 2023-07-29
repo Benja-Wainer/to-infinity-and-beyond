@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to bookings_index_path
     else
-      render :new, status: :unprocessable_entity
+      render "jetpacks/show", locals: {review: Review.new}, status: :unprocessable_entity
     end
   end
 
@@ -43,6 +43,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:status, :booking_date, :comment)
+    params.require(:booking).permit(:status, :booking_date, :comment, :terms_and_conditions)
   end
 end
